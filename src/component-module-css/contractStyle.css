@@ -1,0 +1,544 @@
+:root{
+    --font-family-contract:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    --contract-card-shadow:px 5px 20px rgb(0,0,0,0.4);
+    --card-fusion:linear-gradient(120deg, #fff, transparent,#fff,transparent);
+    --card-contract-background-color:#000000;
+    --card-contract-color:#f1f1f1;
+    --image-size:200% 100%;
+    --contract-background-size:100% 0;
+    --contract-btn-bg:linear-gradient(to bottom, darkorange,darkorange);
+    --contract-btn-hover-bg:linear-gradient(120deg,darkgreen 63%,transparent,silver 37%,lightgray 25%);
+    --text-shadow:0 1px 0 #ccc, 0 2px 0 #ccc, 0 6px 0 transparent, 0 10px 10px rgb(0, 0,0,0.4);
+    --contract-form-text-shadow:0 1px 0 #ccc, 0 2px 0 #ccc, 0 6px 0 transparent, 0 10px 10px rgb(0, 0,0,0.4),0 1px 10px rgb(0,0,0,0.5);
+    
+    --animation-positive:translateY(0px);
+    --animation-negative:translateX(-10px);
+    --animation-transparent: all 0.5s;
+    --animation-transparent2:all 0.6s;
+    --about-transform:translateY(100px);
+    --about-main-bg:linear-gradient(120deg, #fff 75%,transparent,silver  37%,darkorange 5%);
+    --about-main-bg-hover:linear-gradient(120deg, #f1f1 75%,transparent,silver  37%,rgba(0, 0, 0, 0.1) 5%);
+    --about-main-bakground:rgba(0, 0, 0, 0.1);
+    --font-family-about:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    --component-bg:linear-gradient(45deg,rgba(30, 30, 30, 0.85),rgba(30, 30, 30, 0.85));
+    --main-slider-bg:linear-gradient(90deg,#e6e6e6 25%,#d4d4d4 37%,#f1f1f1 63%);
+    --main-slider-image-size:400% 100%;
+    --background-position-0:100% 50%;
+    --background-position-100:0 50%;
+    --skeletone-animation:1.4s infinite skeletone;
+    --animation-name:css-skeleton-loading;
+    --dot-skeletone-bg:linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+    --contract-head-shadow:0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc,
+        0 6px 0 #ccc,0 7px 0 #ccc,0 8px 0 #ccc, 0 9px 0 transparent,
+        0 10px 0 transparent, 0 11px 0 transparent, 0 12px 0 transparent, 0 13px 0 transparent, 
+        0 13px 0 transparent,0 14px 0 transparent,0 15px 0 transparent,0 10px 10px rgb(0, 0,0,0.4);
+    --contract-head-shadow-100:0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc,
+        0 6px 0 #ccc,0 7px 0 #ccc,0 8px 0 #ccc, 0 9px 0 transparent,
+        0 10px 0 transparent, 0 11px 0 transparent, 0 12px 0 transparent, 0 13px 0 transparent, 
+        0 13px 0 transparent,0 14px 0 transparent,0 15px 0 transparent,0 50px 25px rgb(0, 0,0,0.4);
+    --bounce-animation:bounce 1s infinite alternate;
+    
+}
+.row.contract__card__bundel {
+    margin-top: 20px;
+    padding-bottom: 190px;
+}
+h1.contract__head {
+    margin-top: 40px;
+}
+.demo-contract-bg {
+    width: 1200px;
+    height: 410px;
+    position: relative;
+    margin-top: -765px;
+}
+.demo-contract-bg-off{
+    display: none;
+}
+h2{
+    margin-top: 0em;
+    letter-spacing: 1px;
+}
+h2 span{
+    position: relative;
+    top: -12px;
+    text-shadow: var(--contract-head-shadow);
+    animation: var(--bounce-animation);
+}
+@keyframes bounce{
+    100%{
+        top: 12px;
+        text-shadow: var(--contract-head-shadow-100);
+    }
+}
+h2 span:nth-child(2){
+    animation-delay: 0.1s;
+}
+h2 span:nth-child(3){
+    animation-delay: 0.2s;
+}
+h2 span:nth-child(4){
+    animation-delay: 0.3s;
+}
+h2 span:nth-child(5){
+    animation-delay: 0.4s;
+}
+h2 span:nth-child(6){
+    animation-delay: 0.5s;
+}
+h2 span:nth-child(7){
+    animation-delay: 0.6s;
+}
+h2 span:nth-child(8){
+    animation-delay: 0.7s;
+}
+h2 span:nth-child(9){
+    animation-delay: 0.8s;
+}
+h2 span:nth-child(10){
+    animation-delay: 0.9s;
+}
+h2 span:nth-child(11){
+    animation-delay: 0.8s;
+}
+h2 span:nth-child(12){
+    animation-delay: 0.7s;
+}
+h2 span:nth-child(13){
+    animation-delay: 0.6s;
+}
+h2 span:nth-child(14){
+    animation-delay: 0.5s;
+}
+h2 span:nth-child(15){
+    animation-delay: 0.4s;
+}
+h2 span:nth-child(16){
+    animation-delay: 0.3s;
+}
+.form__head{
+    padding-bottom: 10px;
+}
+span.contract__form {
+    font-family: var(--font-family-contract);
+    font-size: 17px;
+    font-weight: 900;
+    display: inline;
+    text-transform: uppercase;
+    /* text-shadow: var(--contract-form-text-shadow); */
+    color: black;
+    background-color: white;
+}
+.contract__form p {
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 31px;
+    line-height: 37px;
+    font-weight: 400;
+    color: rgb(255, 255, 255);
+    visibility: inherit;
+    transition: none;
+    border-width: 0px;
+    margin: 0 0 0 20px;
+    padding-right: 20px;
+    letter-spacing: 0px;
+    min-height: 0px;
+    min-width: 0px;
+    max-height: none;
+    max-width: none;
+    opacity: 1;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    transform-origin: 50% 50% 0px;
+}
+span.icon{
+    font-size: 15px;
+    color: black;
+    padding-inline-start: 5px;
+    padding-inline-end: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 50%;
+    border: 0.5px solid gray;
+    animation: iconColor 6s reverse infinite;
+}
+@keyframes iconColor{
+    0%{
+        color: darkorange;
+        border-color: darkorange;
+    }
+    50%{
+        color: orangered;
+        border-color: gray;
+    }
+    100%{
+        color: gray;
+        border-color: orange;
+    }
+}
+.location{
+    padding-inline-start: 5px;
+}
+.contract{
+    background-color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    box-shadow: var(--contract-card-shadow);
+    border: none;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    font-size: 13px;
+    background-image: var(--card-fusion);
+    background-size: var(--image-size);
+    background-position: var(--contract-background-size);
+    background-color: var(--card-contract-color);
+    animation: 6s infinite load;
+}
+.contract__card{
+    display: flex;
+    justify-content: space-between;
+    box-shadow: var(--contract-card-shadow);
+    height: auto;
+    width: 100%;
+    font-size: 13px;
+    /* background-image: var(--card-fusion); */
+    border-radius: 5px;
+    background-size: var(--image-size);
+    background-position: var(--contract-background-size);
+    animation: 6s infinite load;
+}
+@keyframes load{
+    100% {
+        background-position: -110% 0;
+    }
+}
+.contract-head-skeletone{
+    position: relative;
+    /* background-color: rgb(0,0,0,0.06);  */
+}
+.contract-head-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -120px;
+    top: -30px;
+    width: 240px;
+    height: 35px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+@keyframes css-skeleton-loading{
+    0%{
+        background-position: var(--background-position-0);
+    }
+    100%{
+        background-position: var(--background-position-100);
+    }
+}
+.contract-head-text::after{
+    content: 'Get in Touch';
+}
+.contract-sub-title-skeletone, .bounce-skeletone, .contrac-info-paragraph-skeletone, .contract-icon-skeletone, 
+.contract-info-skeletone-one, .contract-form-skeletone, .contract-input-skeletone, .contract-text-area-skeletone, .contract-button-skeletone{
+    position: relative;
+    /* background-color: rgb(0,0,0,0.06);  */
+}
+.contract-sub-title-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -180px;
+    top: 15px;
+    width: 400px;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-sub-title-text::after{
+    content: 'Feel free to drop us a line to contact us';
+}
+.bounce-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -5px;
+    top: 8px;
+    width: 30px;
+    height: 33px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contrac-info-paragraph-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -5px;
+    top: 8px;
+    width: 240px;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-info-text::after{
+    content: 'Hello Everyone! Have a great day :) I am here to help you. If you want to know something or you have any suggestion then please mail me. Thank You.';
+}
+.contract-icon-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -2px;
+    top: -2px;
+    width: 33px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.contract-info-skeletone-one::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 8px;
+    top: 1px;
+    width: 200px;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-info-text-one::after{
+    content: 'Sector-14, Uttara, Dhaka-1200.';
+}
+.contract-info-text-two::after{
+    content: 'gstmedicinecenter@gmail.com';
+}
+.contract-info-text-three::after{
+    content: 'Www.gstmedicinecenter.com';
+}
+.contract-form-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: -15px;
+    width: 150px;
+    height: 25px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-input-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: -22px;
+    width: 200px;
+    height: 22px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-form-title::after{
+    content: 'Contract Form';
+}
+.contract-text-area-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 0px;
+    top: -160px;
+    width: 200px;
+    height: 160px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract-button-skeletone::before{
+    position: absolute;
+    box-sizing: border-box;
+    left: -81px;
+    top: -6px;
+    width: 200px;
+    height: 33px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.contract__body{
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 2.15rem;
+}
+.user__label{
+    color: #000000;
+    font-size: 25px;
+    text-shadow: var(--text-shadow);
+}
+#input__field{
+    outline: none;
+    box-shadow: none;
+}
+.visitor__input{
+    background-color: white;
+    box-shadow: none;
+    outline: none;
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    color: black;
+    font-weight: 500;
+    border-radius: 3px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+}
+
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+.btn:hover {
+    color: #212529;
+    text-decoration: none;
+}
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+button.send__btn{
+    background-image:var(--contract-btn-hover-bg);
+    box-shadow: 0px 2px 20px #0001,0px 1px 6px #0001;
+    border: none;
+    font-weight: 600;
+    font-size: 13px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 200px;
+    height: 30px;
+    line-height: 0.5;
+    text-shadow: var(--text-shadow);
+    
+}
+button.send__btn:focus{
+    box-shadow: 0px 2px 20px #0001,0px 1px 6px #0001;
+    outline: none;
+    background-image:var(--contract-btn-hover-bg);
+    color: purple;
+    border: none;
+    transition: all 0.6s;
+    -webkit-transition: all .6s ease-out!important;
+    text-shadow: var(--text-shadow);
+}
+.btn-text-display::before{
+    content: '';
+}
+.btn-text-display::after{
+    content: 'Send';
+}
+button.send__btn:hover::after{
+    display: table;
+    box-shadow: 0px 2px 20px #0001,0px 1px 6px #0001;
+    outline: none;
+    background-image:var(--contract-btn-hover-bg);
+    color: purple;
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.6s;
+    -webkit-transition: all .6s ease-out!important;
+    text-shadow: var(--text-shadow);
+}
+span.contract__subtitle{
+    color: black;
+    font-size: 16px;
+}
+@media (min-width:600px) and (max-width:769px) {
+    .contract___section{
+        height: 80vh;
+    }
+    .contract__card{
+        height: 100%;
+    }
+    label.lbl__contract{
+        font-size: 20px;
+        color: #000000;
+    }
+    .visitor__input{
+        font-size: 12px;
+    }
+    .contract__head{
+        font-size: 20px;
+    }
+    span.contract__form{
+        font-size: 15px;
+    }
+    .location{
+        font-size: 12px;
+    }
+    span.icon{
+        font-size: 13px;
+    }
+}
+@media (min-width:400px) and (max-width:580px){
+    span.contract__subtitle {
+        font-size: 10px;
+    }
+    .user__label{
+        font-size: 15px;
+    }
+    span.contract__form{
+        font-size: 15px;
+    }
+
+}

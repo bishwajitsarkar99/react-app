@@ -1,0 +1,27 @@
+:root{
+    --font-family-features:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+
+}
+#bestSelling {
+    background-color: #f2f3f8;
+}
+section#bestSelling{
+    /* background: url('/public/product-category-image/category-bg.png'); */
+    font-family: var(--font-family-features);
+    padding-bottom: 50px;
+    height: auto;
+}
+.container.best-selling-container{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    /* background-color: #f1f1; */
+    background-color: #fff;
+}
+a#TopSellingButton {
+    outline: none;
+    box-shadow: none;
+}
+.best__selling__title__block::after{
+    content: 'Best Selling';
+}

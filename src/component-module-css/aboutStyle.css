@@ -1,0 +1,360 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&family=Roboto:ital,wght@1,100&display=swap');
+
+:root{
+    --details-btn:linear-gradient(to bottom,silver,transparent,silver,lightgray);
+    --btn-border:1px solid rgb(223, 98, 223);
+    --btn-color:purple;
+    --text-shadow:0 1px 0 #ccc, 0 2px 0 #ccc, 0 6px 0 transparent, 0 10px 10px rgb(0, 0,0,0.4);
+    --head-word:0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 0 6px 0 transparent,
+    0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgb(0, 0,0,0.4);
+    --paragraph-text:0 1px 0 #ccc, 0 6px 0 transparent, 0 9px 0 transparent, 0 10px 10px rgb(0, 0,0,0.4);
+    --animation-positive:translateY(0px);
+    --animation-negative:translateX(-10px);
+    --animation-transparent: all 0.5s;
+    --animation-transparent2:all 0.6s;
+    --about-transform:translateY(100px);
+    --about-main-bg:linear-gradient(120deg, #fff 75%,transparent,silver  37%,darkorange 5%);
+    --about-main-bg-hover:linear-gradient(120deg, #f1f1 75%,transparent,silver  37%,rgba(0, 0, 0, 0.1) 5%);
+    --about-main-bakground:rgba(0, 0, 0, 0.1);
+    --font-family-about:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    --component-bg:linear-gradient(45deg,rgba(30, 30, 30, 0.85),rgba(30, 30, 30, 0.85));
+    --main-slider-bg:linear-gradient(90deg,#e6e6e6 25%,#d4d4d4 37%,#f1f1f1 63%);
+    --main-slider-image-size:400% 100%;
+    --background-position-0:100% 50%;
+    --background-position-100:0 50%;
+    --skeletone-animation:1.4s infinite skeletone;
+    --animation-name:css-skeleton-loading;
+    --dot-skeletone-bg:linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+}
+.demo-about-bg {
+    width: 1200px;
+    height: 400px;
+    position: relative;
+    margin-top: -350px;
+}
+.demo-about-bg-off{
+    display: none;
+}
+.about-head-skeletne, .about-sub-head-skeletne, .about-first-paragraph-skeletone,.about-title-paragraph-skeletone
+,.about-titles-paragraph-skeletone, .about-description-skeletone,.about-description-first-skeletone,.about-description-second-skeletone
+,.about-description-third-skeletone,.about-btn-skeletone{
+    position: relative;
+    /* background-color: rgb(0,0,0,0.06);  */
+}
+.about-head-skeletne::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 20px;
+    top: 4px;
+    width: 210px;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.abouthead::after{
+    content: 'About-Us';
+}
+.about-sub-head-skeletne::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 20px;
+    top: 20px;
+    width: 210px;
+    height: 15px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.second-head::after{
+    content: 'Mission Statement';
+}
+.about-first-paragraph-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -5px;
+    top: 40px;
+    width: 780px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.about-title-paragraph-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -15px;
+    top: 55px;
+    width: 780px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.about-titles-paragraph-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -15px;
+    top: 70px;
+    width: 500px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.about-description-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -5px;
+    top: 80px;
+    width: 780px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;  
+}
+.about-description-first-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -15px;
+    top: 95px;
+    width: 780px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;  
+}
+.about-description-second-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -15px;
+    top: 110px;
+    width: 780px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;  
+}
+.about-description-third-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: -15px;
+    top: 125px;
+    width: 500px;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.about-btn-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    left: 50px;
+    top: 54px;
+    width: 130px;
+    height: 46px;
+    border-radius: 30px;
+    background: var(--main-slider-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite; 
+}
+.about_us_protocol{
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    background-image: var(--about-main-bg);
+    transition: all 0.6s;
+}
+.about_us_protocol:hover{
+    /* background: var(--about-main-background); */
+    background-image: var(--about-main-bg-hover);
+    transition: all 0.6s;
+}
+.about-head{
+    font-family: var(--font-family-about);
+    padding-left: 25px;
+    padding-bottom: 10px;
+    top: 0;
+    color: black;
+    text-shadow: var(--head-word);
+    animation: textup 3s linear infinite;
+    transform: var(--about-transform);
+}
+@keyframes textup{
+    10%{
+        transform: var(--animation-positive);
+        transform: var(--animation-negative);
+        transition: var(--animation-transparent); 
+    }
+    100%{
+        transform: var(--animation-positive);
+        transform: var(--animation-negative);
+        transition: var(--animation-transparent2);
+    }
+}
+.about-subtitle{
+    font-family: var(--font-family-about);
+    padding-left: 25px;
+    padding-bottom: 10px;
+    top: 0;
+    color: black;
+    text-shadow: var(--head-word);
+    animation: textup 4s ease-in-out infinite;
+    transform: var(--about-transform);
+}
+.about-title{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    object-fit: cover;
+    font-family: var(--font-family-about);
+    color: black;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    word-wrap: break-word;
+    font-weight: 900;
+    font-style: italic;
+    text-shadow: var(--paragraph-text);
+    animation: textup 60s linear infinite;
+    transform: var(--about-transform);
+}
+.about-titles::after{
+    content: '" To empower patients with the knowledge to better manage their own healthcare and to improve consumer safety by assisting in the reduction of medication errors." ';
+}
+.about-description{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    object-fit: cover;
+    font-family: var(--font-family-about);
+    color: #000001;
+    letter-spacing: 1.5px;
+    word-spacing: 1px;
+    word-wrap: break-word;
+    margin-top: 15px;
+    font-weight: 900; 
+    font-style: normal;
+    text-shadow: var(--paragraph-text);
+    animation: textup 60s linear infinite;
+    transform: var(--about-transform);
+}
+.about-descriptions::after{
+    content: 'Drugs.com is the largest, most widely visited, independent medicine information website available on the Internet. Our aim is to be the Internet’s most trusted resource for drug and related health information. We will achieve this aim by presenting independent, objective, comprehensive and up-to-date information in a clear and concise format for both consumers and healthcare professionals.';
+}
+.details_btn{
+    display: inline-block;
+    font-family: var(--font-family-about);
+    font-size: 16px;
+    padding: 10px 30px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 200px;
+    transition: background-color 0.2s, border 0.2s, color 0.2;
+    color: white;
+    border: 1px solid #fff;
+    margin-top: 100px;
+    /* text-shadow: var(--text-shadow); */
+}
+.details_btn:hover{
+    background-image: var(--details-btn);
+    color: var(--btn-color);
+    border: var(--btn-border);
+}
+.btn_div{
+    padding:20px 50px;
+}
+@media screen and (max-width:769px){
+    .about_us_protocol {
+        padding-top: 10px;
+    }
+    .btn_div {
+        padding: 10px 30px;
+    } 
+    .about-title{
+        font-size: 14px;
+    }   
+    .about-description{
+        font-size: 14px;
+    }
+    .details_btn {
+        padding: 5px 10px;
+        margin-top: 315px;
+    } 
+}
+
+@media screen and (max-width:580px){
+    .about_us_protocol {
+        padding-top: 10px;
+    }
+    .details_btn {
+        padding: 5px 10px;
+        margin-top: 400px;
+    } 
+    .about-title{
+        font-size: 12px;
+    }   
+    .about-description{
+        font-size: 12px;
+    }
+    .btn_div {
+        padding: 0px 0px;
+    }
+    
+}

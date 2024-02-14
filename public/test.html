@@ -1,0 +1,162 @@
+<svg viewBox="64 64 896 896" focusable="flase" data-icon="dot-chart" width="1em" height="1em" fill="currentColor" aria-hidden="true">
+    <path d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM288 604a64 64 0 10128 0 64 64 0 10-128 0zm118-224a48 48 0 1096 0 48 48 0 10-96 0zm158 228a96 96 0 10192 0 96 96 0 10-192 0zm148-314a56 56 0 10112 0 56 56 0 10-112 0z"></path>
+</svg>
+
+.absolute-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.aiz-p-hov-icon a {
+    display: block;
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    border-radius: 50%;
+    text-align: center;
+    background: #fff;
+    margin-top: 5px;
+    margin-right: 5px;
+    color: #333;
+    font-size: 15px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.12);
+    transform: translateX(calc(100% + 7px));
+    -webkit-transform: translateX(calc(100% + 7px));
+}
+
+.magnify {
+    cursor: move;
+    cursor: -webkit-zoom-in;
+}
+
+.magnify {
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    border-radius: 100%;
+    box-shadow: 0 0 0 7px rgba(255,255,255,.85), 0 0 7px 7px rgba(0,0,0,.25), inset 0 0 40px 2px rgba(0,0,0,.25);
+    display: none;
+}
+
+
+// Fixed Button on Page
+div=class
+.todays-deal-sticky-button-wrap {
+  position: fixed;
+  z-index: 99;
+  top: 50%;
+  right: 2%;
+  transform: translateY(-50%);
+  height: 80px;
+  width: 80px;
+  display: flex;
+  border-radius: 15px;
+  /* overflow: hidden; */
+  /* box-shadow: 0px 0px 10px #8d8d8d9e; */
+}
+//before
+.todays-deal-sticky-button-wrap:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: var(--primary);
+  repeat scroll 0 0: ;
+  z-index: 0;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  animation: pulse-border 1500ms ease-out infinite;
+  z-index: -1;
+}
+::after
+.todays-deal-sticky-button-wrap:after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 80px;
+  height: 80px;
+  display: block;
+  left: 50%;
+  top: 50%;
+  /* background: #ffb606 repeat scroll 0 0; */
+  transform: translate(-50%, -50%);
+  transition: all 200ms;
+}
+
+
+
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+
+function PostBlogContainer() {
+  const [blogCategory, setBlogCategory] = useState([]);
+
+  useEffect(() => {
+    async function getPostAll() {
+      try {
+        const response = await axios.get("http://127.0.0.1:8000/api/get-blog-category-post");
+        console.log(response.data);
+        if (response.data.blog_category && response.data.blog_category.data) {
+          setBlogCategory(response.data.blog_category.data);
+        } else {
+          console.error(response.data);
+        }        
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    getPostAll();
+  }, []);
+
+  return (
+    <>
+      <div className="post-blog-container">
+
+            <div className="card post-blog-main-card" >
+              <div className="row">
+                <div className="post-title">
+                  <span className='title-text'></span>
+                </div>
+              </div>
+              <div className="row">
+                <div className='media-section__left'>
+                  <div className='med-carousel'>
+                      <div className='slider__list'>
+                          <div className='slider__container__left' style={{marginTop:127}}>
+                            <img className='post-main-image' src="" alt="main-image" />
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          <div className='slider__container__right video-list' style={{marginTop:127}}>
+            <div className='slider-collection '>
+                <div className='sub__slider '>
+                    <div className="card mini-video-list-card">
+                      <span className=' text-center video-heading'>Popular</span>
+                      {blogCategory.map((element, index) => (
+                        <div className="card video-mini-card" key={index}>
+                          <span className='popular-mini-image'>
+                            <img className='img-thumbnail' src={"http://127.0.0.1:8000/api/post/category/" + element.image} alt="image" onError={(e) => console.error('Image failed to load', e)} />
+                          </span>
+                          <span>{element.category_name}</span>
+                        </div>
+                      ))}
+                    </div>
+                </div>
+            </div> 
+          </div>
+      </div>
+    </>
+  );
+}
+
+export default PostBlogContainer;
+

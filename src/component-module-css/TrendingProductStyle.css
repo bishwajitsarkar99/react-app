@@ -1,0 +1,29 @@
+:root{
+    --font-family-features:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+
+}
+#trendingProducts {
+    background-color: #f2f3f8;
+}
+section#trendingProducts{
+    /* background: url('/public/product-category-image/category-bg.png'); */
+    font-family: var(--font-family-features);
+    padding-bottom: 50px;
+    height: auto;
+}
+.container.trending-product-container{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    /* background-color: #f1f1; */
+    background-color: #fff;
+}
+a#TrendingButton{
+    outline: none;
+    box-shadow: none;
+    width: 90px;
+    margin-left: 76px;
+}
+.trending__title__display::after{
+    content: 'Trending Product';
+}

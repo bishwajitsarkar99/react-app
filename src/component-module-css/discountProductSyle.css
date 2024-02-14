@@ -1,0 +1,29 @@
+:root{
+    --font-family-features:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+
+}
+#discountProducts{
+    background-color: #f2f3f8;
+}
+section#discountProducts{
+    /* background: url('/public/product-category-image/category-bg.png'); */
+    font-family: var(--font-family-features);
+    padding-bottom: 50px;
+    height: auto;
+}
+.container.product-discount-container{
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-radius: 3px;
+    /* background-color: #f1f1; */
+    background-color: #fff;
+}
+a#DiscountButton {
+    outline: none;
+    box-shadow: none;
+    width: 90px;
+    margin-left: 76px;
+}
+.discount__title__display::after{
+    content: 'Discount Product';
+}

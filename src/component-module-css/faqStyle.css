@@ -1,0 +1,313 @@
+:root{
+    --font-family-faq:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,'Noto Sans',sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+    --text-keyword:0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc, 0 5px 0 #ccc, 
+    0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent, 0 9px 0 transparent, 
+    0 10px 10px rgb(0, 0,0,0.4);
+    --component-bg:linear-gradient(45deg,rgba(30, 30, 30, 0.85),rgba(30, 30, 30, 0.85));
+    --main-slider-bg:linear-gradient(90deg,#e6e6e6 25%,#d4d4d4 37%,#f1f1f1 63%);
+    --main-slider-image-size:400% 100%;
+    --background-position-0:100% 50%;
+    --background-position-100:0 50%;
+    --skeletone-animation:1.4s infinite skeletone;
+    --animation-name:css-skeleton-loading;
+    --dot-skeletone-bg:linear-gradient(90deg, rgba(0, 0, 0, 0.06) 25%, rgba(0, 0, 0, 0.15) 37%, rgba(0, 0, 0, 0.06) 63%);
+}
+.demo-faq-bg {
+    width: 1150px;
+    height: 558px;
+    position: relative;
+    margin-top: -835px;
+}
+.demo-faq-bg-off{
+    display: none;
+}
+img.faq-image{
+    box-sizing: border-box;
+    border-radius: 3px;
+    background: rgb(0,0,0,0.06);
+    object-fit: cover;
+    transition: all 0.6s;
+}
+.faq__container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-image: linear-gradient(120deg,#f1f1 75%,transparent,#f1f1f1 25%,transparent,#fff 37%);
+}
+.accordion-button:not(.collapsed) {
+    font-family: var(--font-family-faq);
+    color: #0c63e4;
+    background-image: linear-gradient(90%deg,rgb(0,0,0,0.06) 25%,#f1f1f1 37%,lightgray 63%);
+    /* box-shadow: inset 0 -1px 0 rgba(0,0,0,.125); */
+    box-shadow: none;
+    outline: none;
+}
+.accordion-button:focus {
+    font-family: var(--font-family-faq);
+    z-index: 3;
+    border-color: #e62e04;
+    outline: 0;
+    /* box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25); */
+    box-shadow: none;
+    outline: none;
+}
+button, [type='button'], [type='reset'], [type='submit'] {
+    -webkit-appearance: button;
+    background-color: #f1f1;
+    background-image: none;
+}
+.accordion-button {
+    font-family: var(--font-family-faq);
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    opacity: 1;
+    color: green;
+    text-align: left;
+    background-color: #fff;
+    border: 0;
+    border-radius: 0;
+    overflow-anchor: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
+}
+.accordion-item:first-of-type .accordion-button {
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.accordion-button:not(.collapsed) {
+    font-family: var(--font-family-faq);
+    background-color: #f1f9f9;
+    --tw-bg-opacity: 1;
+    color: rgb(99 102 241 / var(--tw-bg-opacity));
+    box-shadow: none;
+    outline: none;
+}
+section#faq{
+    margin-top: 1px solid lightgray;
+    height: 150vh;
+}
+.card-header.faq__header {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0;
+    /* background-color: #f2f3f8; */
+    background: none;
+    border:none;
+    text-align: left;
+    font-family: var(--font-family-faq);
+}
+div#accordionExample {
+    box-shadow: 0px 2px 20px #0001, 0px 1px 6px #0001;
+}
+#faq{
+    border-top: 1px solid lightgray;
+    /* border-bottom: 1px solid lightgray; */
+    font-family: var(--font-family-faq);
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    color: black;
+    opacity: 5;
+    background-color: #f2f3f8;
+    padding-top: 30px;
+}
+.faq-card-body{
+    margin-bottom: 30px;
+}
+.faq__display__on::after{
+    content: 'Frequently Asked Questions';
+}
+.faq__display__off{
+    display: none;
+}
+.faq__sub__head__title__skeletone{
+    position: relative;
+    background-color: rgb(0,0,0,0.06);
+}
+.faq__sub__head__title__skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+    left: 0px;
+    /* z-index: 2; */
+    margin-top: 3px;
+    min-height: 15px;
+    width: 530px;
+    border-radius: 5px;
+    background: var(--dot-skeletone-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+@keyframes css-skeleton-loading{
+    0%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
+}
+.faq-image-skeletone{
+    position: relative;
+    background-color: rgb(0,0,0,0.06);
+}
+.faq-image-skeletone::before{
+    content:"";
+    position:absolute;
+    box-sizing: border-box;
+    left:-3px;
+    top: -380px;
+    width:310px;
+    height: 380px;
+    /* z-index:9; */
+    background:var(--main-slider-bg);
+    background-size:var(--main-slider-image-size);
+    animation-timing-function: ease;
+    animation: var(--skeletone-animation);
+}
+@keyframes skeletone{
+    0%{
+      background-position: var(--background-position-0);
+    }
+    100%{
+      background-position: var(--background-position-100);
+    }
+}
+svg.faq__svg__image {
+    margin-top: -290px;
+    margin-left: -55px;
+    width: 400px;
+    height: 220px;
+}
+.svg__card{
+    background: none;
+    border: none;
+}
+.faq__svg__display{
+    display: none;
+}
+.faq-content-skeletone{
+    position: relative;
+    background-color: rgb(0,0,0,0.06);
+}
+.faq-content-skeletone::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+    left: 0px;
+    /* z-index: 2; */
+    margin-top: -5px;
+    min-height: 15px;
+    width: 430px;
+    border-radius: 5px;
+    background: var(--dot-skeletone-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.faq-content::after{
+    content: 'Design Decisions With Emmett McBain ?';
+}
+.faq-content-two::after{
+    content: 'Podcast Episode Chris Ferdinand Modern ?';
+}
+.faq-content-three::after{
+    content: 'Responsive Dashboard Angular Material ?';
+}
+.faq-content-four::after{
+    content: 'Translating Design Wireframes Into';
+}
+.faq-content-five::after{
+    content: 'Why will we use this site ?';
+}
+.faq-content-six::after{
+    content: 'What is the importancy of Ecomerce Site ?';
+}
+.faq-content-answer-skeletone, .faq-content-answer-skeletone-children, .faq-content-answer-skeletone-children-two,.faq-content-answer-skeletone-two,
+.faq-content-answer-skeletone-three, .faq-content-answer-skeletone-children-three , .faq-content-answer-skeletone-four, .faq-content-answer-skeletone-children-four,
+.faq-content-answer-skeletone-five, .faq-content-answer-skeletone-children-five, .faq-content-answer-skeletone-six,
+.faq-content-answer-skeletone-children-six{
+    position: relative;
+    background-color: rgb(0,0,0,0.06);
+}
+.faq-content-answer-skeletone::before,.faq-content-answer-skeletone-two::before, .faq-content-answer-skeletone-three::before, .faq-content-answer-skeletone-four::before,
+.faq-content-answer-skeletone-five::before, .faq-content-answer-skeletone-six::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+    left: 0px;
+    /* z-index: 2; */
+    margin-top: -5px;
+    min-height: 10px;
+    width: 430px;
+    border-radius: 5px;
+    background: var(--dot-skeletone-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.faq-content-answer-skeletone-children::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+    left: 0px;
+    /* z-index: 2; */
+    margin-top: -5px;
+    min-height: 10px;
+    width: 100px;
+    border-radius: 5px;
+    background: var(--dot-skeletone-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.faq-content-answer-skeletone-children-two::before, .faq-content-answer-skeletone-children-three::before, .faq-content-answer-skeletone-children-four::before,
+.faq-content-answer-skeletone-children-five::before, .faq-content-answer-skeletone-children-six::before{
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    justify-content: space-between;
+    left: 0px;
+    /* z-index: 2; */
+    margin-top: -5px;
+    min-height: 10px;
+    width: 350px;
+    border-radius: 5px;
+    background: var(--dot-skeletone-bg);
+    background-size: 400% 100%;
+    animation-name: var(--animation-name);
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+}
+.faq-content-answer::after{
+    content: "This is the first item's accordion body.Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+}
+.faq-content-answer-two::after{
+    content: "This is the second item's accordion body. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.accordion-body, though the transition does limit overflow.";
+}
+.faq-content-answer-three::after{
+    content: "This is the third item's accordion body.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.accordion-body, though the transition does limit overflow.";
+}
+.faq-content-answer-four::after{
+    content: "This is the third item's accordion body.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.accordion-body, though the transition does limit overflow.";
+}
+.faq-content-answer-five::after{
+    content: "This is the third item's accordion body.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.accordion-body, though the transition does limit overflow.";
+}
+.faq-content-answer-six::after{
+    content: "This is the third item's accordion body.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.accordion-body, though the transition does limit overflow.";
+}

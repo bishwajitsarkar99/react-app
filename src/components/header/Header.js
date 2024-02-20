@@ -1,7 +1,10 @@
 import React,{useState} from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import 'react-tooltip/dist/react-tooltip.css';
 import { Tooltip } from 'react-tooltip'
+import axios from 'axios';
+import { BASE_URL } from '../../http';
+import toast from 'react-hot-toast';
 
 const Header = () => {
     // Logo
@@ -66,7 +69,38 @@ const Header = () => {
             setSidebarPageMenu(false)
         }
     }
-    window.addEventListener('scroll',ChangeColor)
+    window.addEventListener('scroll',ChangeColor);
+
+    const navigate = useNavigate();
+
+    const handleLogout = (e) => {
+
+        e?.preventDefault();
+
+        const token =  window.localStorage.getItem('auth_token');
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Authorization': token? 'Bearer ' +token: '',
+            }
+        };
+
+        axios.post(BASE_URL+'api/logout', {}, config).then(res => {
+
+            console.clear();
+            toast.success(res.data.message);
+            window.localStorage.removeItem('auth_token');
+            
+            setTimeout(() => {
+                navigate('/');
+            }, 1500);
+            
+        }).catch(err => {
+
+            
+        });
+    }
     
     return (
         <div className="App">
@@ -129,6 +163,14 @@ const Header = () => {
                                         <Tooltip id="user-account" />
                                     </a>
                                 </li>
+
+                                <li>
+                                    <a href='/user-account' onClick={(e)=> handleLogout(e)}>
+                                        Logout
+                                        
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>

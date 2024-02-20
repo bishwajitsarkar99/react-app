@@ -1,10 +1,22 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import {useTypewriter, Cursor } from 'react-simple-typewriter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import http, { BASE_URL } from '../../http';
+import axios from 'axios';
+import Newsleter from '../newsleter';
 
 const Footer = () => {
     AOS.init();
+
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+
+        axios.get(BASE_URL + 'api/super-admin/forntend-footer-information').then(res => {
+            setData(res.data);
+        });
+    }, []);
     
     // Footer Skeletone
     function footerFirstBlockSkeletone(){
@@ -25,42 +37,42 @@ const Footer = () => {
         const  allSkeleton = document.querySelectorAll('.footer-first-block-three-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-three-skeletone')
-        item.classList.add('first-block-paragraph1')
+        // item.classList.add('first-block-paragraph1')
         });
     }
     function footerFirstBlockChildren3Skeletonetwo(){
         const  allSkeleton = document.querySelectorAll('.footer-first-block-four-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-four-skeletone')
-        item.classList.add('first-block-paragraph2')
+        // item.classList.add('first-block-paragraph2')
         });
     }
     function footerFirstBlockChildren4Skeletone(){
         const  allSkeleton = document.querySelectorAll('.footer-first-block-five-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-five-skeletone')
-        item.classList.add('first-block-paragraph3')
+        // item.classList.add('first-block-paragraph3')
         });
     }
     function footerFirstBlockChildren5Skeletone(){
         const  allSkeleton = document.querySelectorAll('.footer-first-block-six-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-six-skeletone')
-        item.classList.add('first-block-paragraph4')
+        // item.classList.add('first-block-paragraph4')
         });
     }
     function footerFirstBlockChildren6Skeletone(){
         const  allSkeleton = document.querySelectorAll('.footer-first-block-seven-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-seven-skeletone')
-        item.classList.add('first-block-paragraph5')
+        // item.classList.add('first-block-paragraph5')
         });
     }
     function footerFirstBlockChildre7Skeletone(){
         const  allSkeleton = document.querySelectorAll('.footer-first-block-eight-skeletone')
         allSkeleton.forEach(item=>{
         item.classList.remove('footer-first-block-eight-skeletone')
-        item.classList.add('first-block-paragraph6')
+        // item.classList.add('first-block-paragraph6')
         });
     }
     function footerSecondBlockSkeletone(){
@@ -148,7 +160,7 @@ const Footer = () => {
     }, 10);
 
     const [typeEffect] = useTypewriter({
-        words: ['GST Medicine Center'],
+        words: [data.company_name?data.company_name:''],
         loop: {},
         typeSpeed: 100,
         delaySpeed: 30,
@@ -167,15 +179,8 @@ const Footer = () => {
     return (
         <div id='header-wrapper' className=''>
             <footer className="main-footer">
-                <div className='row'>
-                    <form>
-                        <div class="input-group mb-3 new-letter-block-container">
-                            <label className='subscribe__label footer-first-block-two-skeletone'></label>
-                            <input id='#inputSubscribe' type="text" className="form-control susbcribe__input footer-first-block-two-skeletone" placeholder="Your Email Address....." aria-label="Recipient's username" aria-describedby="button-addon2" />
-                            <button className="btn btn-outline-secondary susbcribe__btn" type="button" id="button-addon2">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+                <Newsleter />
+                
                 <img className='demo-news-bg' src='../demo-background/demo-news-bg.png' alt='demo-slider' /> 
 
                 <div className='row'>
@@ -190,12 +195,24 @@ const Footer = () => {
                                 </span>
                             </span><br />
                             <div className='info__box' data-aos="flip-left" data-aos-duration="1500">
-                                <span className='name__title addr__link__group footer-first-block-three-skeletone' style={infoTitle}></span><br />
-                                <span className='paratitle__title link__group footer-first-block-four-skeletone' style={infoTitle}></span>
-                                <span className='paratitle__title link__group footer-first-block-five-skeletone' style={infoTitle}></span><br />
-                                <span className='paratitle__title link__group footer-first-block-six-skeletone' style={infoTitle}></span>
-                                <span className='paratitle__title link__group footer-first-block-seven-skeletone' style={infoTitle}></span>
-                                <span className='paratitle__title link__group footer-first-block-eight-skeletone' style={infoTitle}></span>
+                                <span className='name__title addr__link__group footer-first-block-three-skeletone' style={infoTitle}>
+                                    Address : {data.company_address}    
+                                </span><br />
+                                <span className='paratitle__title link__group footer-first-block-four-skeletone' style={infoTitle}>
+                                    Contract-number-one : {data.contract_number_one}, {data.contract_number_two}
+                                </span>
+                                <span className='paratitle__title link__group footer-first-block-five-skeletone' style={infoTitle}>
+                                    What's app number-one : {data.whatsapp_number_one}, {data.whatsapp_number_two}
+                                </span><br />
+                                <span className='paratitle__title link__group footer-first-block-six-skeletone' style={infoTitle}>
+                                    Email : {data.email}
+                                </span>
+                                <span className='paratitle__title link__group footer-first-block-seven-skeletone' style={infoTitle}>
+                                    Facebook : {data.facebook_address}
+                                </span>
+                                <span className='paratitle__title link__group footer-first-block-eight-skeletone' style={infoTitle}>
+                                    Linkedin : {data.linkedin}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -222,7 +239,7 @@ const Footer = () => {
                         <div className='group-input media__link__group row' data-aos="flip-left" data-aos-duration="1500">
                             <div className='col-sm media_group'>
                                 <span className='footer-social-media-skeletone'>
-                                    <a className='media_link' href='#'>
+                                    <a className='media_link' href={data.facebook_link} target="_blank">
                                         <img className="image__youtube"src="/logo/app_facebook_logo.png"
                                             alt="Facebook"
                                         />
@@ -231,7 +248,7 @@ const Footer = () => {
                             </div>
                             <div className='col-sm media_group'>
                                 <span className='footer-social-media-skeletone'>
-                                    <a className='linkedin_link' href='#'>
+                                    <a className='linkedin_link' href={data.linkedin_link} target="_blank">
                                         <img className="image__youtube"src="/logo/app_linkedin_icon.png"
                                             alt="Linkedin"
                                         />
@@ -240,7 +257,7 @@ const Footer = () => {
                             </div>
                             <div className='col-sm media_group'>
                                 <span className='footer-social-media-skeletone'>
-                                    <a className='messanger_link' href='#'>
+                                    <a className='messanger_link' href={data.messaner_link} target="_blank">
                                         <img className="image__youtube"src="/logo/messenger logo_icon.png"
                                             alt="Messanger"
                                         />
@@ -258,7 +275,7 @@ const Footer = () => {
                             </div>
                             <div className='col-sm media_group'>
                                 <span className='footer-social-media-skeletone'>
-                                    <a className='youtube_link' href='#'>
+                                    <a className='youtube_link' href={data.youtube_chenel} target="_blank">
                                         <img className="image__youtube"src="/logo/youtube.png"
                                             alt="Youtube"
                                         />

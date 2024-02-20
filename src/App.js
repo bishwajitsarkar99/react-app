@@ -18,6 +18,7 @@ import Header from './components/header/Header';
 import Footer from './components/footer/footer.js';
 import { Outlet } from 'react-router-dom';
 import { useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   // UpArrow Button show when any page scroll ----------
@@ -35,11 +36,11 @@ function App() {
 
   return (
     <>
-      {/* <div className='fixed-box' id='fixed-offer'>
+      <div className='fixed-box' id='fixed-offer'>
         <a className='' href='#'>
           <img className='offer-logo' src='../logo/todays.png' alt='offer-logo' />
         </a>
-      </div> */}
+      </div>
       <div className="App">
         <Header/>
       </div>
@@ -49,12 +50,16 @@ function App() {
       <div className="" >
         <Footer />
       </div>
-      {/* <div className={upButton ? 'up--arrow--btn--display' : 'up--arrow--btn--display--none'}>
+      <div className={upButton ? 'up--arrow--btn--display' : 'up--arrow--btn--display--none'}>
         <div className='clasic--uparrow'>
           <a href='#' className='uparrow--btn'><i class="fa-solid fa-arrow-up btn--icon"></i></a>
         </div>
-      </div> */}
+      </div>
       
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+      />
     </>
   );
 }

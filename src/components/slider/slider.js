@@ -288,7 +288,7 @@ const Slider = () => {
                         </div>
                     </div>
                 </div>
-                {/* <MarqueText /> */}
+                <MarqueText />
             </div>
         </>
 

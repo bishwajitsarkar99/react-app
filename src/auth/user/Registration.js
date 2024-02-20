@@ -2,9 +2,23 @@ import React,{useState} from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRegisterUserMutation } from '../services/userAuthApi';
 import { storeToken } from '../services/LocalStorageService';
+import axios from 'axios';
+import { BASE_URL } from '../../http';
+import toast from 'react-hot-toast';
 
 
 function Registration() {
+
+    const [isAgree, setAgree] = useState(false);
+    const [fields, setFields] = useState({
+        name: '',
+        email: '',
+        password: '',
+        password_confirmation: '',
+        status: false,
+    });
+    const [errors, setErrors] = useState({});
+    const [isLoading, setLoading] = useState(false);
 
     const [error, setError] = useState({
         status: false,
@@ -12,36 +26,40 @@ function Registration() {
         type: ""
       })
       const navigate = useNavigate();
-      const [registerUser] = useRegisterUserMutation()
+     
       const handleSubmit = async (e) => {
-        e.preventDefault();
-        const data = new FormData(e.currentTarget);
-        const actualData = {
-          name: data.get('name'),
-          email: data.get('email'),
-          password: data.get('password'),
-          password_confirmation: data.get('password_confirmation'),
-          tc: data.get('tc'),
-        }
-        if (actualData.name && actualData.email && actualData.password && actualData.password_confirmation && actualData.tc !== null) {
-          if (actualData.password === actualData.password_confirmation) {
-    
-            const res = await registerUser(actualData)
-            console.log(res)
-            if (res.data.status === "success") {
-              // Store Token Code here
-              storeToken(res.data.token)
-              navigate('/dashboard')
+        e?.preventDefault();
+        setLoading(true);
+
+        //validation
+
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded'
             }
-            if (res.data.status === "failed") {
-              setError({ status: true, msg: res.data.message, type: 'error' })
-            }
-          } else {
-            setError({ status: true, msg: "Password and Confirm Password Doesn't Match", type: 'error' })
-          }
-        } else {
-          setError({ status: true, msg: "All Fields are Required", type: 'error' })
-        }
+        };
+
+        axios.post(BASE_URL+'api/register', fields, config).then(res => {
+
+            toast.success(res.data.message);
+            setFields({
+                name: '',
+                email: '',
+                password: '',
+                password_confirmation: '',
+                status: false,
+            });
+            
+        }).catch(err => {
+
+            const{errors} = err.response;
+            setErrors(errors);
+
+        }).finally(function(){
+            setLoading(false);
+        });
+        
     }    
     return (
         <>
@@ -55,27 +73,77 @@ function Registration() {
                                         <h1>Create an account</h1>
                                     </div>
                                     <div className="login-form">
-                                        <form className='' action="#" method='#'>
+                                        <form  action="#" method='post' onSubmit={handleSubmit}>
                                             <div className="form-group">
-                                                <input className='form-control text--input' type="text" name='name' placeholder='Full Name' id='email'  autoComplete='off'/>
+                                                <input 
+                                                    name='name'
+                                                    value={fields.name}
+                                                    onChange={e=>setFields(fields=> ({...fields, name: e.target.value}))} 
+                                                    className='form-control text--input' 
+                                                    type="text" 
+                                                    placeholder='Full Name' 
+                                                    id='email'  
+                                                    autoComplete='off'
+                                                    disabled={isLoading}
+                                                />
                                             </div>
                                             <div className="form-group">
-                                                <input className='form-control text--input' type="email" name='email' placeholder='Email' id='email'  autoComplete='off'/>
+                                                <input 
+                                                    name='email'
+                                                    value={fields.email}
+                                                    onChange={e=>setFields(fields=> ({...fields, email: e.target.value}))} 
+                                                    className='form-control text--input' 
+                                                    type="email" 
+                                                    placeholder='Email' 
+                                                    id='email'  
+                                                    autoComplete='off'
+                                                    disabled={isLoading}
+                                                />
                                             </div>
                                             <div className="form-group">
-                                                <input className='form-control text--input' type="password" name='password' placeholder='Password' id='password' autoComplete='off'/>
+                                                <input 
+                                                    name='password'
+                                                    value={fields.password}
+                                                    onChange={e=>setFields(fields=> ({...fields, password: e.target.value}))} 
+                                                    className='form-control text--input' 
+                                                    type="text" 
+                                                    placeholder='Password' 
+                                                    autoComplete='off'
+                                                    disabled={isLoading}
+                                                />
                                             </div>
                                             <div className="form-group">
-                                                <input className='form-control confirm--text--input' type="password" name='confirm_password' placeholder='Confirm Password' id='confirm_password' autoComplete='off'/>
+                                                <input 
+                                                    name='password_confirmation'
+                                                    value={fields.password_confirmation}
+                                                    onChange={e=>setFields(fields=> ({...fields, password_confirmation: e.target.value}))} 
+                                                    className='form-control confirm--text--input' 
+                                                    type="text" 
+                                                    placeholder='Confirm Password' 
+                                                    autoComplete='off'
+                                                    disabled={isLoading}
+                                                />
                                             </div>
                                             <div className='row'>
-                                                <div className='col-12'>
-                                                    <input type='checkbox' className='checking ms-2' value={true} name='status' id='status' />
+                                                <div className='col-12'
+                                                    onClick={e=> setAgree(!isAgree)}
+                                                >
+                                                    <input 
+                                                        type='checkbox' 
+                                                        name='status'
+                                                        
+                                                        className='checking ms-2' 
+                                                        checked={isAgree}
+                                                    />
                                                     <span className='checking--label'>I agree to term and condition.</span>
                                                 </div>
                                             </div>
                                             <div className="form-group">
-                                                <button type='submit' className='btn btn-xl login--btn' id='loginSubmt'> 
+                                                <button 
+                                                    type='submit' 
+                                                    className='btn btn-xl login--btn' 
+                                                    disabled={!isAgree||isLoading}
+                                                > 
                                                     <span className='btn--label'>Create Account</span>
                                                 </button>
                                             </div>
